@@ -1,2 +1,6 @@
 # app-azure
-App Azure 
+App de exercício para utilização de serviços do azure utilizando:
+
+Postgress
+Terraforms
+dotnet Core
