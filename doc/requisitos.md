@@ -9,15 +9,14 @@ Campo da empresa:
   - Data de Termino
   - Vigencia das informações
   - *Situação Cadastral*
-  - Fiscal:
-    - CNAE
-    - FAP
-    - RAT
-    - Responsável
-      - Nome
-      - CPF
-      - Email
-      - Telefone
+  - CNAE
+  - FAP
+  - RAT
+  - Responsável
+    - Nome
+    - CPF
+    - Email
+    - Telefone
 
 Campos de dominio:
 
