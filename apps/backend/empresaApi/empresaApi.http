@@ -1,0 +1,29 @@
+@empresaApi_HostAddress = http://localhost:5021/api/empresa
+
+POST {{empresaApi_HostAddress}}/
+Content-Type: application/json
+
+{
+  "Cnpj": "89030032000143",
+  "RazaoSocial": "Osvaldo e Davi Financeira Ltda",
+  "DataAbertura": "2024-01-01T00:00:00",
+  "DataTermino": null,
+  "ResponsavelFiscal": {
+    "Nome": "Julia Milena Mariane Rocha",
+    "CPF": "99572697390",
+    "Email": "producao@osvaldoedavifinanceiraltda.com.br",
+    "Telefone": "1938635030"
+  },
+  "SituacaoCadastralId": 1,
+  "Cnae": "13481",
+  "Fap": 2.0,
+  "Rat": 1
+}
+
+
+###
+
+GET {{empresaApi_HostAddress}}/
+Accept: application/json
+
+###

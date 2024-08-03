@@ -1,9 +1,11 @@
-DROP TABLE IF EXISTS public.empresas;
-DROP TABLE IF EXISTS public.responsaveis;
-DROP TABLE IF EXISTS public.situacao_cadastral;
+CREATE SCHEMA [IF NOT EXISTS] empresa;
+
+DROP TABLE IF EXISTS empresa.empresas;
+DROP TABLE IF EXISTS empresa.responsaveis;
+DROP TABLE IF EXISTS empresa.situacao_cadastral;
 
 
-create table public.responsaveis (
+create table responsaveis (
 	id serial not null,
     nome VARCHAR(255),
     cpf VARCHAR(14),
@@ -13,14 +15,14 @@ create table public.responsaveis (
     CONSTRAINT responsaveis_unique UNIQUE (id)
 );
 
-create table public.situacao_cadastral(
+create table situacao_cadastral(
 	id INT,
 	descricao VARCHAR(255),
 	CONSTRAINT situacao_cadastral_pk PRIMARY KEY (id),
 	CONSTRAINT situacao_cadastral_unique UNIQUE (id)
 );
 
-CREATE TABLE public.empresas (
+create table empresas (
 	id serial4 NOT NULL,
 	cnpj varchar(14) NOT NULL,
 	razao_social varchar(255) NULL,
@@ -33,12 +35,12 @@ CREATE TABLE public.empresas (
 	rat numeric(5, 2) NULL,
 	CONSTRAINT empresas_pk PRIMARY KEY (id),
 	CONSTRAINT empresas_unique UNIQUE (cnpj),
-	CONSTRAINT empresas_responsaveis_fk FOREIGN KEY (responsavel_fiscal_id) REFERENCES public.responsaveis(id),
-	CONSTRAINT situacao_cadastral_fk FOREIGN KEY (situacao_cadastral_id) REFERENCES public.situacao_cadastral(id)
+	CONSTRAINT empresas_responsaveis_fk FOREIGN KEY (responsavel_fiscal_id) REFERENCES responsaveis(id),
+	CONSTRAINT situacao_cadastral_fk FOREIGN KEY (situacao_cadastral_id) REFERENCES situacao_cadastral(id)
 );
 
 
-INSERT INTO public.situacao_cadastral (id,descricao) VALUES	 (1,'Ativo',);
-INSERT INTO public.situacao_cadastral (id,descricao) VALUES	 (2,'Cancelado',);
-INSERT INTO public.situacao_cadastral (id,descricao) VALUES	 (3,'Inativa',);
-INSERT INTO public.situacao_cadastral (id,descricao) VALUES	 (4,'Extinta');
+INSERT INTO situacao_cadastral (id,descricao) VALUES	 (1,'Ativo');
+INSERT INTO situacao_cadastral (id,descricao) VALUES	 (2,'Cancelado');
+INSERT INTO situacao_cadastral (id,descricao) VALUES	 (3,'Inativa');
+INSERT INTO situacao_cadastral (id,descricao) VALUES	 (4,'Extinta');
